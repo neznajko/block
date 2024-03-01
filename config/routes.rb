@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root "articles#index"
   
   get "/articles",    to: "articles#index"
-  get "/article/:id", to: "articles#show"
+  get "/article/:id", to: "articles#show", as: "article"
 
 end
 ########################################################
@@ -18,3 +18,6 @@ end
 # - /articles( index )
 # - Article( title: string, body: text )
 # - /article/:id( show )
+# 3/01/2024
+# - Bootstrap
+# - link_to
