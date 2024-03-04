@@ -1,0 +1,10 @@
+<h1> Create New Article </h1>
+<%= form_with model: @article do | form | %>
+    <div class="mb-3">
+        <%= form.text_field :title %>
+    </div>
+    <div class="mb-3">
+        <%= form.text_area :body, size: "60x10" %>
+    </div>
+    <%= form.submit class: "btn btn-primary" %>   
+<% end %>
