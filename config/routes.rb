@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,9 +12,14 @@ Rails.application.routes.draw do
   # bleiben                                      to stay
   # auflegen                                  to hang up
   get  "/articles",     to: "articles#all"
+  # put new fyorst to avoid taking it as parameter
   get  "/articles/new", to: "articles#new",   as: "new_article"
   get  "/articles/:id", to: "articles#show",  as: "article"
   post "/articles",     to: "articles#create"
+  # 
+  get   "/articles/:id/edit", to: "articles#edit",   as: "edit_article"
+  patch "/articles/:id",      to: "articles#update", as: "update_article"
+
 end
 ########################################################
 # log:
@@ -27,4 +33,6 @@ end
 # 3/04/2024
 # - articles#new
 # - articles#create
-#
+# 3/06/2024
+# - get,patch /articles/:id/edit
+# - form partial

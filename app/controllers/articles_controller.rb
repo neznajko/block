@@ -22,8 +22,7 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        id = params[ :id ]
-        @article = Article.find( id )
+      @article = find_article
     end
 
     def create
@@ -35,7 +34,25 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def edit
+      @article = find_article
+    end
+
+    def update
+      @article = find_article
+      if @article.update( article_params )
+        redirect_to article_path
+      else
+        render :edit
+      end
+    end
+
     private
+    
+    def find_article
+        Article.find( params[ :id ])
+    end
+
     def article_params
         params.require( :article )
               .permit( :title, :body )
