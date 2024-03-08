@@ -1,2 +1,21 @@
-<h2> <%= @article.title %> </h2>
-<%= @article.body %>
+<div class="card">
+    <h2 class="card-header">
+        <%= @article.title %>
+    </h2>
+    <div class="card-body">
+        <div class="card-text">
+            <%= @article.body %>
+        </div>
+    </div>
+    <div class="card-footer">
+        <span>
+            <%= link_to "Edit", edit_article_path( @article ), class: "btn btn-outline-primary" %>
+        </span>
+        <%= link_to "Delete", article_path( @article ), 
+                    data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?",
+                    }, 
+                    class: "btn btn-danger" %>
+    </div>
+</div>

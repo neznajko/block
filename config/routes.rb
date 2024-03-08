@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   get  "/articles/:id", to: "articles#show",  as: "article"
   post "/articles",     to: "articles#create"
   # 
-  get   "/articles/:id/edit", to: "articles#edit",   as: "edit_article"
-  patch "/articles/:id",      to: "articles#update", as: "update_article"
+  get    "/articles/:id/edit", to: "articles#edit", as: "edit_article"
+  patch  "/articles/:id",      to: "articles#update"
+  delete "articles/:id",       to: "articles#destroy"
 
 end
 ########################################################
@@ -36,3 +37,8 @@ end
 # 3/06/2024
 # - get,patch /articles/:id/edit
 # - form partial
+# 3/08/2024
+# - delete
+########################################################
+# - validations
+# - flash cards
