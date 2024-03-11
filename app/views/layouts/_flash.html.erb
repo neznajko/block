@@ -1,0 +1,10 @@
+<% flash_classes = {
+  'notice' => 'alert alert-info',
+  'alert'  => 'alert alert-danger',
+} %>
+<% flash.each do | type, msg | %>
+  <div class="<%= flash_classes[ type ]%>">
+    <%= msg %>
+  </div>
+<% end %>
+
