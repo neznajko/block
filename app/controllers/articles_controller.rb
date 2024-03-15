@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
         if @article.save
           redirect_to @article, notice: "Success", alert: "wtf?"
         else
+          print( ">  >", @article.errors.any? )
           render :new
         end
     end
@@ -49,7 +50,6 @@ class ArticlesController < ApplicationController
 
     def destroy
       article = find_article
-      p ">>>>", article
       article.destroy
       redirect_to articles_path 
     end
