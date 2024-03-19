@@ -24,25 +24,6 @@ Rails.application.routes.draw do
 end
 ########################################################
 # log:
-# 2/29/2024
-# - /articles( index )
-# - Article( title: string, body: text )
-# - /article/:id( show )
-# 3/01/2024
-# - Bootstrap
-# - link_to
-# 3/04/2024
-# - articles#new
-# - articles#create
-# 3/06/2024
-# - get,patch /articles/:id/edit
-# - form partial
-# 3/08/2024
-# - delete
-# 3/11/2024
-# - flash
-# 3/15/2024
-# - validations
-# - turbo
+# 19/03/2024
+# - comment model
 ########################################################
-# - clean the mess

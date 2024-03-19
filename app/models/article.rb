@@ -1,6 +1,9 @@
 class Article < ApplicationRecord
-  validates :title, presence: true
-  validates :body, presence: true, length: { minimum: 10 }
-#    validates :title, length: { in: 1..32 }
-#    validates :body, length: { in: 8..120 } 
+
+  has_many :comments
+
+  validates_presence_of :title, :body
+  validates_length_of :title, maximum: 32 
+  validates_length_of :body, in: 8..120
+
 end
