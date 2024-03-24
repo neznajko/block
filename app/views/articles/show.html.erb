@@ -6,6 +6,26 @@
         <div class="card-text">
             <%= @article.body %>
         </div>
+        
+        <% @article.comments.each do |cmt| %>
+            <%= cmt.commenter %>
+            <%= cmt.body %>
+        <% end %>
+
+        <%= form_with model: [ @article, @comment ], data: { turbo: false } do |form| %>
+            <p>
+                <%= form.label :commenter %>
+                <%= form.text_field :commenter %>
+            </p>
+            <p>
+                <%= form.label :body %>
+                <%= form.text_area :body %>
+            </p>
+            <p>
+                <%= form.submit %>
+            </p>
+        <% end %>
+
     </div>
     <div class="card-footer">
         <span>

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   patch  "/articles/:id",      to: "articles#update"
   delete "articles/:id",       to: "articles#destroy"
   ######################################################
-  get "/articles/:id/comments", to: "comments#index"
+  post "/articles/:id/comments", to: "comments#create", as: "article_comments"
 
 end
 ########################################################
@@ -30,25 +30,7 @@ end
 # - comment model
 # 20/
 # - comments controller( initial setup )
+# 24/
+# - comment form
 ########################################################
-# resources :articles do resources :comments end: This line nests the
-# comments resource within the articles resource. This means that
-# comments will be managed in the context of articles. It generates
-# routes for CRUD operations on comments, but these routes will be
-# prefixed with /articles/:article_id/, indicating that they belong to
-# a specific article. So, the routes for comments will look like:
-
-# GET /articles/:article_id/comments - index action of
-# CommentsController: Displays all comments for a specific article.
-
-# GET /articles/:article_id/comments/new - new action of CommentsController: Displays a form to create a new comment for a specific article.
-
-# POST /articles/:article_id/comments - create action of CommentsController: Creates a new comment for a specific article.
-
-# GET /articles/:article_id/comments/:id - show action of CommentsController: Displays a specific comment for a specific article.
-
-# GET /articles/:article_id/comments/:id/edit - edit action of CommentsController: Displays a form to edit a specific comment for a specific article.
-
-# PATCH/PUT /articles/:article_id/comments/:id - update action of CommentsController: Updates a specific comment for a specific article.
-
 # DELETE /articles/:article_id/comments/:id - destroy action of CommentsController: Deletes a specific comment for a specific article

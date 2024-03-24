@@ -5,9 +5,14 @@
 class CommentsController < ApplicationController
 
   # らい年｜中国｜に｜かえります。
-  def index
-    @article = find_article
-    redirect_to article_path
+  def create
+    p ">  >", comment_params
+  end
+
+  private
+
+  def comment_params
+    params.require( :comment ).permit( :commenter, :body )
   end
 
 end

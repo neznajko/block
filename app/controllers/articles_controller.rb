@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
 
     def show
       @article = find_article
+      @comment = @article.comments.build
     end
 
     def create
