@@ -22,8 +22,15 @@ class ArticlesController < ApplicationController
     end
 
     def show
+
       @article = find_article
-      @comment = @article.comments.build
+      # pass new comment here, so if comments controller's
+      # create action fails to save the comment the view
+      # will hold reference to @comment so it can print
+      # the errors
+      @comment = @article.comments.new
+      print ">>>>", @comment, @comment.errors.count
+
     end
 
     def create
@@ -31,7 +38,6 @@ class ArticlesController < ApplicationController
         if @article.save
           redirect_to @article, notice: "Success", alert: "wtf?"
         else
-          print( ">  >", @article.errors.any? )
           render :new
         end
     end

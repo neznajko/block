@@ -6,7 +6,13 @@ class CommentsController < ApplicationController
 
   # らい年｜中国｜に｜かえります。
   def create
-    p ">  >", comment_params
+    @article = find_article
+    @comment = @article.comments.build( comment_params )
+    if @comment.save
+      redirect_to @article
+    else
+      render 'articles/show'
+    end
   end
 
   private

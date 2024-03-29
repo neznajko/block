@@ -6,24 +6,45 @@
         <div class="card-text">
             <%= @article.body %>
         </div>
-        
-        <% @article.comments.each do |cmt| %>
-            <%= cmt.commenter %>
-            <%= cmt.body %>
-        <% end %>
 
-        <%= form_with model: [ @article, @comment ], data: { turbo: false } do |form| %>
-            <p>
-                <%= form.label :commenter %>
-                <%= form.text_field :commenter %>
-            </p>
-            <p>
-                <%= form.label :body %>
-                <%= form.text_area :body %>
-            </p>
-            <p>
-                <%= form.submit %>
-            </p>
+        <div class="card text-bg-secondary mt-2 mb-2">
+            <h5 class="card-header text-bg-dark"> Comments </h5>
+            <div class="card-body">
+                <% ( @article.comments.count ).times do |j| %>
+                    <% cmt = @article.comments[ j ] %> 
+                    <div class="container">
+                        <span class="badge text-bg-primary">
+                            <%= cmt.commenter %>
+                        </span>
+                        <span class="fst-italic">
+                            <%= cmt.body %>
+                        </span>
+                        <% if j < @article.comments.count - 1 %>
+                          <hr>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        
+        <h2> <span class="badge text-bg-info"> new </span>
+             <span class="fst-italic"> comment </span> </h2>
+        <%= form_with model: [ @article, @comment ], 
+                      data: { turbo: false } do |form| %>
+            <%# display save errors if any %>
+            <% @comment.errors.full_messages().each do | msg | %>
+                <div class="alert alert-info"> <%= msg %> </div>
+            <% end %>
+            <div class="form-group mb-3">
+                <%= form.label :commenter, class: "form-label" %>
+                <%= form.text_field :commenter, class: "form-control" %>
+            </div>
+            <div class="form-group mb-3">
+                <%= form.label :body, class: "form-label" %>
+                <%= form.text_area :body, class: "form-control", 
+                                          size: "60x10" %>
+            </div>
+            <%= form.submit class: "btn btn-primary" %>
         <% end %>
 
     </div>
