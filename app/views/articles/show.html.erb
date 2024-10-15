@@ -2,11 +2,23 @@
     <h2 class="card-header">
         <%= @article.title %>
     </h2>
+    <div class="card-footer">
+        <span>
+          <%= link_to "Edit", edit_article_path( @article ), 
+                              class: "btn btn-outline-primary" %>
+        </span>
+        <%= link_to "Delete", article_path( @article ), 
+                    data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?",
+                    }, 
+                    class: "btn btn-danger" %>
+    </div>
     <div class="card-body">
         <div class="card-text">
-            <%= @article.body %>
+            <%= simple_format( @article.body ) %>
         </div>
-
+        <br>
         <div class="card text-bg-secondary mt-2 mb-2">
             <h5 class="card-header text-bg-dark"> Comments </h5>
             <div class="card-body">
@@ -47,16 +59,5 @@
             <%= form.submit class: "btn btn-primary" %>
         <% end %>
 
-    </div>
-    <div class="card-footer">
-        <span>
-            <%= link_to "Edit", edit_article_path( @article ), class: "btn btn-outline-primary" %>
-        </span>
-        <%= link_to "Delete", article_path( @article ), 
-                    data: {
-                        turbo_method: :delete,
-                        turbo_confirm: "Are you sure?",
-                    }, 
-                    class: "btn btn-danger" %>
     </div>
 </div>
