@@ -1,3 +1,4 @@
+################################################################
 class Article < ApplicationRecord
 
   has_many :comments
@@ -7,3 +8,4 @@ class Article < ApplicationRecord
   validates_length_of :body, in: 8..1024
 
 end
+################################################################

@@ -7,28 +7,28 @@
 #
 #            _
 class ArticlesController < ApplicationController
-
+    # /
     def index
     end
-
     # (8) 毎晩、何時ごろ寝ますか。
-    #     １１：３０。
+    #     ０８：３０。
+    # /articles
     def all
         @articles = Article.all
     end
     # - Um wie viel Uhr gehst du jeden Abend ins Bett? 
     # - 11:30.
-
     # (7) 今晩、何をしますか。
     #     食べます キュフテタ。
+    # /articles/new
     def new
         @article = Article.new
     end
     # - Heute Abend was machst du?
     # - Ich esse Kjufteta.
-
     # (6) 朝、何を食べますか。
     #     ハンバーガー。
+    # /articles/:id
     def show
         @article = find_article
         # pass new comment here, so if comments controller's
@@ -39,30 +39,30 @@ class ArticlesController < ApplicationController
     end
     # - Morgens was isst du?
     # - Hamburger.( not Sport-Verein )
-
     # (5) 週末はどこで行くますか。
     #     わかりません。
+    # /articles( post )
     def create
         @article = Article.new( article_params )
         if @article.save
-            redirect_to @article, notice: "Success", alert: "wtf?"
+            redirect_to @article, notice: "Success"
         else
             render :new
         end
     end
     # - Wohin gehst du am Wochenende?
     # - Ich weiß es nicht.
-
     # (4) スポーツをしますか。
     #     ちょっと。
+    # /articles/:id/edit
     def edit
         @article = find_article
     end
     # - Treibst du sport?
     # - Ein bisschen.
-
     # (3) いつにテレビを見ますか。
     #     ぜんぜんません。
+    # /articles/:id( patch )
     def update
         @article = find_article
         if @article.update( article_params )
@@ -73,9 +73,9 @@ class ArticlesController < ApplicationController
     end
     # - Wann siehst du fern?
     # - Nie.( neva beginze! )
-
     # (2) どこで勉強しますか。
     #     うち。
+    # /articles/:id( delete )
     def destroy
         article = find_article
         article.destroy
@@ -85,7 +85,7 @@ class ArticlesController < ApplicationController
     # - Zu Hause.
     private
     # (1) 何時に起きますか。
-    #     ０５：３０。 
+    #     ０４：３０。 
     def article_params
         params.require( :article )
               .permit( :title, :body )

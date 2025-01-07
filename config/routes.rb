@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Define your application routes per the DSL in 
+  # https://guides.rubyonrails.org/routing.html
+  # Reveal health status on /up that returns 200 if the 
+  # app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to 
+  # verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
   ######################################################
   # Defines the root path route ("/")
@@ -19,18 +20,13 @@ Rails.application.routes.draw do
   # 
   get    "/articles/:id/edit", to: "articles#edit", as: "edit_article"
   patch  "/articles/:id",      to: "articles#update"
-  delete "articles/:id",       to: "articles#destroy"
+  delete "/articles/:id",      to: "articles#destroy"
   ######################################################
   post "/articles/:id/comments", to: "comments#create", as: "article_comments"
-
 end
 ########################################################
 # log:
-# 19/03/2024
-# - comment model
-# 20/
-# - comments controller( initial setup )
-# 24/
-# - comment form
 ########################################################
-# DELETE /articles/:article_id/comments/:id - destroy action of CommentsController: Deletes a specific comment for a specific article
+# DELETE /articles/:article_id/comments/:id - destroy 
+# action of CommentsController: Deletes a specific 
+# comment for a specific article

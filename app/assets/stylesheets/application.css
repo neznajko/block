@@ -18,10 +18,13 @@
  *= require_tree .
  *= require_self
  */
+a {
+    text-decoration: none;
+}
 main {
-    padding-top: 1vh;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-top: 0vh;
+    padding-left: 0vw;
+    padding-right: 0vw;
 }
 main > h1 {
     font-style: italic;
@@ -37,4 +40,62 @@ ul.navbar-nav > li:first-child {
     border: 1px solid #7777ff;
     border-radius: 10px;
     background: #444444;
+}
+li.new-article > a {
+    color: #88ff88;
+}
+.search-button {
+    background: #552244;
+}
+/* show article */
+main > .card {
+    width: 60%;
+    margin: 2rem;
+}
+/* article body */
+.article {
+    background: hsl( 0, 0%, 10% );
+    border-bottom: var( --bs-card-border-width ) 
+                   solid 
+                   var( --bs-card-border-color );
+}
+/* comment section */
+.comment-container {
+    margin-left: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+.articles {
+    margin-left: 1rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start
+}
+.articles > .list-group {
+    width: 100%;
+}
+.velcome {
+    color: hsla( 210, 50%, 80%, .9 );
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+/* On screens that are 600px or less */
+@media screen and (max-width: 600px) {
+  .display-2 {
+      font-size: 2rem;
+  }
+  /* Home link */
+  ul.navbar-nav > li:first-child {
+      width: 6rem;
+      display: flex;
+      justify-content: center;
+  }
+  /* show article */
+  main > .card {
+    width: 100%;
+    margin: 0rem;
+  }
 }

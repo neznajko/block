@@ -19,7 +19,11 @@
                                          aria: { current: "page" } %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" 
+             href="https://guides.rubyonrails.org/getting_started.html"
+             target="_blank" 
+             rel="noopener noreferrer"
+             > Link </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" 
@@ -33,15 +37,14 @@
             <li>
               <%= link_to "All", articles_path, class: "dropdown-item" %>
             </li>
-            <li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="new-article">
               <%= link_to "New", new_article_path, class: "dropdown-item" %>
             </li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true"> clck!</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -49,7 +52,7 @@
                type="search" 
                placeholder="Search" 
                aria-label="Search">
-        <button class="btn btn-outline-light" 
+        <button class="btn btn-outline-light search-button" 
                 type="submit"> Search </button>
       </form>
     </div>
