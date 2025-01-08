@@ -20,7 +20,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" 
-             href="https://guides.rubyonrails.org/getting_started.html"
+             href="https://guides.rubyonrails.org/v7.2/getting_started.html"
              target="_blank" 
              rel="noopener noreferrer"
              > Link </a>
@@ -47,14 +47,13 @@
           <a class="nav-link disabled" aria-disabled="true"> clck!</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" 
-               type="search" 
-               placeholder="Search" 
-               aria-label="Search">
-        <button class="btn btn-outline-light search-button" 
-                type="submit"> Search </button>
-      </form>
+      <%= form_tag articles_path, method: "GET", class: "d-flex" do %>
+        <%= text_field_tag :search, 
+                           params[ :search ],
+                           class: "form-control me-2",
+                           placeholder: "Search" %>
+        <%= submit_tag "Search", class: "btn btn-outline-light search-button" %>
+      <% end %>
     </div>
   </div>
 </nav>

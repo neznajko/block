@@ -82,6 +82,13 @@ main > .card {
     padding-top: 1.5rem;
 }
 
+/**/
+.form-container {
+    width: 60%;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
 /* On screens that are 600px or less */
 @media screen and (max-width: 600px) {
   .display-2 {
@@ -97,5 +104,9 @@ main > .card {
   main > .card {
     width: 100%;
     margin: 0rem;
+  }
+  .form-container {
+      width: 90%;
+      margin-left: 1rem;
   }
 }

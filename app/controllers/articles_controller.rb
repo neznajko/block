@@ -14,7 +14,12 @@ class ArticlesController < ApplicationController
     #     ０８：３０。
     # /articles
     def all
-        @articles = Article.all
+        key = params[ :search ]
+        if key.present?
+          @articles = Article.where( "title LIKE ?", "%#{key}%" )
+        else
+          @articles = Article.all
+        end
     end
     # - Um wie viel Uhr gehst du jeden Abend ins Bett? 
     # - 11:30.
