@@ -93,7 +93,7 @@ class ArticlesController < ApplicationController
     #     ０４：３０。 
     def article_params
         params.require( :article )
-              .permit( :title, :body )
+              .permit( :title, :body, :status )
     end
     # - Um wie viel Uhr stehst du auf?
     # - 05:40.
