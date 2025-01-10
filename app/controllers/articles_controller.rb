@@ -40,7 +40,10 @@ class ArticlesController < ApplicationController
         # create action fails to save the comment the view
         # will hold reference to @comment so it can print
         # the errors
-        @comment = @article.comments.new
+        @comment = Comment.new( article: @article )
+        # Note that it's not @article.comments.new cos an
+        # empty comment will appear if @articles.comments.each
+        # loop is used
     end
     # - Morgens was isst du?
     # - Hamburger.( not Sport-Verein )

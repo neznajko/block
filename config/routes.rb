@@ -23,10 +23,9 @@ Rails.application.routes.draw do
   delete "/articles/:id",      to: "articles#destroy"
   ######################################################
   post "/articles/:id/comments", to: "comments#create", as: "article_comments"
+  # for reloading if post has failed
+  get  "/articles/:id/comments", to: "articles#show"
 end
 ########################################################
 # log:
 ########################################################
-# DELETE /articles/:article_id/comments/:id - destroy 
-# action of CommentsController: Deletes a specific 
-# comment for a specific article

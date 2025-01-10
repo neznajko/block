@@ -11,6 +11,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @article
     else
+      # reloading the brouswer here will send a GET
+      # request to /articles/:id/comments
       render 'articles/show'
     end
   end

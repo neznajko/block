@@ -1,0 +1,25 @@
+<%= form_with model: [ article, comment ], 
+              data: { turbo: false } do | form | %>
+  <%# display save errors if any %>
+  <% comment.errors.full_messages().each do | msg | %>
+    <div class="alert alert-info"> <%= msg %> </div>
+  <% end %>
+  <div class="form-group mb-2">
+    <%= form.label :commenter, class: "form-label" %>
+    <%= form.text_field :commenter, class: "form-control" %>
+  </div>
+  <div class="form-group mb-2">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, class: "form-control", 
+                              size: "60x8" %>
+  </div>
+  <div class="form-group mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status, 
+                     Visible::VALID_STATUSES, 
+                     { selected: 'public' },
+                     { class: "form-select" }
+                     %>
+  </div>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>

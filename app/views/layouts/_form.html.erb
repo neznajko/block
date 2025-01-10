@@ -10,5 +10,13 @@
         <%= form.label :body, class: "form-label" %>
         <%= form.text_area :body, class: "form-control", size: "60x10" %>
     </div>
+    <div class="form-group mb-3">
+      <%= form.label :status, class: "form-label" %>
+      <%= form.select :status, 
+                       Visible::VALID_STATUSES,
+                       { selected: 'public' },
+                       { class: "form-select" }
+                       %>
+    </div>
     <%= form.submit class: "btn btn-primary" %>
 <% end %>

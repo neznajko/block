@@ -1,0 +1,11 @@
+<% unless comment.private? %>
+  <div class="comment-container">
+    <span class="badge text-bg-primary"
+          style="margin-right: 0.4rem;">
+      <%= comment.commenter %>
+    </span>
+    <span class="fst-italic">
+      <%= comment.body %>
+    </span>
+  </div>
+<% end %>
