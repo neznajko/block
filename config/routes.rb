@@ -22,9 +22,10 @@ Rails.application.routes.draw do
   patch  "/articles/:id",      to: "articles#update"
   delete "/articles/:id",      to: "articles#destroy"
   ######################################################
-  post "/articles/:id/comments", to: "comments#create", as: "article_comments"
+  post   "/articles/:id/comments", to: "comments#create", as: "article_comments"
   # for reloading if post has failed
-  get  "/articles/:id/comments", to: "articles#show"
+  get    "/articles/:id/comments", to: "articles#show"
+  delete "/articles/:article_id/comments/:id", to: "comments#destroy", as: "destroy_comment"
 end
 ########################################################
 # log:

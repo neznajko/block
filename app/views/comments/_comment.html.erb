@@ -7,5 +7,14 @@
     <span class="fst-italic">
       <%= comment.body %>
     </span>
+    <span style="float: right">
+      <%= link_to "[ del ]", 
+                   destroy_comment_path( comment.article, comment ),
+                   class: "delete-comment",
+                   data: {
+                       turbo_method: :delete,
+                       turbo_confirm: "Are you sure?",
+                   }%>
+    </span>
   </div>
 <% end %>

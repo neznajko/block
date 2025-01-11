@@ -1,13 +1,19 @@
 <div class="articles">
-  <div class="display-4 mb-2"> Articles </div>
-  <div> Our block has <%= Article.public_count %> articles and counting! </div>
+  <div class="display-4 mb-2"> <%= Article.public_count %> articles </div>
   <ul class="list-group">
-  <% @articles.each do | article | %>
-    <% unless article.private? %>
-      <li class="list-group-item">
-        <%= link_to article.title, article %>
-      </li>
+    <li class="list-group-item active">
+      .. and counting! 
+    </li>
+    <% @articles.each do | article | %>
+      <% unless article.private? %>
+        <li class="list-group-item">
+          <%= link_to article.title, article %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
+    <li class="list-group-item list-group-item-dark d-flex justify-content-end align-items-center ">
+      <%= link_to "New", new_article_path,
+                   class: "btn btn-danger" %>
+    </li>
   </ul>
 </div>
