@@ -30,5 +30,6 @@ COPY --from=build /rails /rails
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["sh", "-c", "rails db:migrate && rails server -b 0.0.0.0"]
+# CMD ["rails", "server", "-b", "0.0.0.0"]
 
